@@ -1,0 +1,38 @@
+Test Task Script
+========================
+
+Description
+-------------
+
+Step 1. Generate zip files
+
+Generates 50 zip files with 100 xml files in each zip file. XML files contains random data with structure:
+<root>
+<var name='id' value='random unique string value'/>
+<var name='level' value='random number 1-100'/>
+<objects>
+    <object name='random string value'/>
+    ... random number of objects 1-10
+</objects>
+</root>
+
+Step 2. Handle directory with zip files
+Parse zip files and save data into 2 csv files:
+1) id, level
+2) id, object_name
+
+Step 2 should effectively use resources of multicore CPU.
+
+
+Requirements:
+-------------
+
+- Python 3.6
+- lxml
+
+Setup:
+-------------
+
+- install requirements pip install -r requirements.txt
+- run script: python test_task.py
+- help for script: python test_task.py -h
