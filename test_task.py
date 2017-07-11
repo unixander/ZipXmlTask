@@ -24,7 +24,7 @@ def profiler(fn):
 
 
 class TestTask(object):
-    MAX_LENGTH = 5
+    MAX_LENGTH = 20
 
     def __init__(self, root_path, zip_prefix='test_', xml_prefix='test_',
                  absolute=False, create=True, **kwargs):
