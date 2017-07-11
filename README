@@ -36,3 +36,5 @@ Setup:
 - install requirements pip install -r requirements.txt
 - run script: python test_task.py
 - help for script: python test_task.py -h
+
+Repository: https://bitbucket.org/unixander/zipxmltask
