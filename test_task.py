@@ -4,15 +4,14 @@ import getopt
 import sys
 import zipfile
 import random
-from lxml import etree
 from io import BytesIO
 import uuid
 import string
 import time
 import csv
-from multiprocessing import Manager
 from functools import partial
 import concurrent.futures
+from lxml import etree
 
 
 def profiler(fn):
