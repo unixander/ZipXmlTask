@@ -86,7 +86,7 @@ class TestTask(object):
         for i in range(0, random.randint(1, 10)):
             # <object name='random string value'/>
             obj = etree.Element('object')
-            obj.set('name', ''.join(random.SystemRandom().choice(string.ascii_letters) for _ in range(self.MAX_LENGTH)))
+            obj.set('name', ''.join(random.choice(string.ascii_letters) for _ in range(self.MAX_LENGTH)))
             objects.append(obj)
 
         root.append(objects)
