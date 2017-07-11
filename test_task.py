@@ -24,6 +24,7 @@ def profiler(fn):
 
 
 class TestTask(object):
+    MAX_LENGTH = 5
 
     def __init__(self, root_path, zip_prefix='test_', xml_prefix='test_',
                  absolute=False, create=True, **kwargs):
@@ -85,7 +86,7 @@ class TestTask(object):
         for i in range(0, random.randint(1, 10)):
             # <object name='random string value'/>
             obj = etree.Element('object')
-            obj.set('name', ''.join(random.SystemRandom().choice(string.ascii_letters)))
+            obj.set('name', ''.join(random.SystemRandom().choice(string.ascii_letters) for _ in range(self.MAX_LENGTH)))
             objects.append(obj)
 
         root.append(objects)
@@ -168,7 +169,7 @@ class TestTask(object):
 
         # Run process files in multiple processes to get more CPU usage
         with concurrent.futures.ProcessPoolExecutor() as executor:
-            with open(level_filepath, 'w') as level_file, open(objects_filepath, 'w') as object_file:
+            with open(level_filepath, 'a') as level_file, open(objects_filepath, 'a') as object_file:
                 level_writer = csv.writer(level_file, delimiter=',')
                 objects_writer = csv.writer(object_file, delimiter=',')
 
